@@ -1,0 +1,24 @@
+﻿<h2>Meus Investimentos</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" formControlName="login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" />
+        <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+            <div *ngIf="f.login.errors.required">Login é obrigatório</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="senha" formControlName="senha" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.senha.errors }" />
+        <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+            <div *ngIf="f.senha.errors.required">Senha é obrogatória!</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            ENTRAR
+        </button>
+        <a routerLink="/cadastro" class="btn btn-link">QUERO INVESTIR</a>
+    </div>
+</form>
